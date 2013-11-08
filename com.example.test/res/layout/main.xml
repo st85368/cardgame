@@ -1,56 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout
-	android:id="@+id/widget0"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android">
-<ScrollView
-	android:id="@+id/cards_sv"
-	android:layout_width="wrap_content"
-	android:layout_height="210dp"
-	android:background="#ffffffcc"
-	android:layout_x="365dp"
-	android:layout_y="31dp">
-	    <EditText
-        android:id="@+id/inputforintent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/shuffle_btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="60dip"
-        android:text="card"
-        android:textSize="20sp" >
-    </EditText>
-</ScrollView>
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="shuffle"
+        android:textSize="11sp" />
 
-<ScrollView
-	android:id="@+id/table_sv"
-	android:layout_width="wrap_content"
-	android:layout_height="216dp"
-	android:background="#ffccffcc"
-	android:layout_x="221dp"
-	android:layout_y="28dp">
-</ScrollView>
-<Button
-	android:id="@+id/draw_card_btn"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="draw card"
-	android:layout_x="6dp"
-	android:layout_y="210dp" 
-	android:onClick="drawcard"/>
-<Button
-	android:id="@+id/show_btn"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="show card"
-	android:layout_x="4dp"
-	android:layout_y="152dp" />
+    <Button
+        android:id="@+id/draw_card_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_above="@+id/shuffle_btn"
+        android:layout_alignParentLeft="true"
+        android:onClick="drawcard"
+        android:text="draw card"
+        android:textSize="11sp" />
 
-<Button
-    android:id="@+id/shuffle_btn"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="100dp"
-    android:layout_y="214dp"
-    android:text="shuffle" />
+    <Button
+        android:id="@+id/show_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_above="@+id/draw_card_btn"
+        android:layout_alignParentLeft="true"
+        android:text="show card"
+        android:textSize="11sp" />
+    
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
 
-</AbsoluteLayout>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deck" />
+
+        <ListView
+            android:id="@+id/userdecklistView"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="56dp"
+        android:layout_toLeftOf="@+id/linearLayout1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On Table" />
+
+        <ListView
+            android:id="@+id/displaydecklistView"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content" >
+        </ListView>
+    </LinearLayout>
+
+</RelativeLayout>
